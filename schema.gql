@@ -1,0 +1,60 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type RelationType {
+  quantity: String
+  item: ItemType
+}
+
+type ItemType {
+  id: ID!
+  itemNumber: String!
+  description: String!
+  procurmentType: String!
+  itemType: String!
+  parents: [RelationType!]!
+  children: [RelationType!]!
+}
+
+type Query {
+  items: [ItemType!]!
+  itemByNumber(itemNumber: String!): ItemType!
+  ItemExist(itemNumber: String!): Boolean!
+  getAncestors(filter: FilterInput, itemNumber: String!): [ItemType!]!
+  getDecendants(filter: FilterInput, itemNumber: String!): [ItemType!]!
+}
+
+input FilterInput {
+  product: Boolean
+  assys: Boolean
+  parts: Boolean
+}
+
+type Mutation {
+  createItem(item: ItemInput!): ItemType!
+  deleteItem(itemNumber: String!): ItemType!
+  addParents(itemNumber: String!): ItemType!
+  removeParent(parent: RelationInput!, itemNumber: String!): ItemType!
+  addChildren(children: [RelationInput!]!, itemNumber: String!): ItemType!
+  removeChild(child: RelationInput!, itemNumber: String!): ItemType!
+  updateItem(item: ItemInput!, itemNumber: String!): ItemType!
+}
+
+input ItemInput {
+  itemNumber: String!
+  description: String
+  procurmentType: String
+  itemType: String
+  parents: [RelationInput!]
+  children: [RelationInput!]
+}
+
+input RelationInput {
+  quantity: String
+  itemNumber: String
+}
+
+type Subscription {
+  itemUpdated(itemNumber: String!): ItemType!
+}
