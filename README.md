@@ -57,3 +57,10 @@ The gql playground already provided a documentation for the available queries, m
 You can go the local running application url and have fun.
 ```
 http://localhost:3000/graphql
+
+```
+**Import the sample data to mongodb collection**
+```
+mongoimport --db cider --collection items --file "sample data\bicycleBOM.json"
+
+```
