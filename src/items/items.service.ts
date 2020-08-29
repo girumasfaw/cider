@@ -24,7 +24,7 @@ export class ItemsService {
     const defaultItemDocument: Item = {
       itemNumber: '',
       description: '',
-      procurmentType: '',
+      procurementType: '',
       itemType: '',
       children: [],
       parents: [],
@@ -65,7 +65,7 @@ export class ItemsService {
     return _.uniq(ancestors).filter(item => {
       if (item.itemType == 'Product' && filter.product == true) {
         return true;
-      } else if (item.itemType == 'Assy' && filter.assys == true) {
+      } else if (item.itemType == 'Assy' && filter.assy == true) {
         return true;
       } else if (item.itemType == 'part' && filter.parts == true) {
         return true;
@@ -99,7 +99,7 @@ export class ItemsService {
     return _.uniq(decendants).filter(item => {
       if (item.itemType == 'Product' && filter.product == true) {
         return true;
-      } else if (item.itemType == 'Assy' && filter.assys == true) {
+      } else if (item.itemType == 'Assy' && filter.assy == true) {
         return true;
       } else if (item.itemType == 'part' && filter.parts == true) {
         return true;

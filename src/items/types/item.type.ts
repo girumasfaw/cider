@@ -10,7 +10,7 @@ export class ItemType {
   @Field()
   readonly description: string;
   @Field()
-  readonly procurmentType: string;
+  readonly procurementType: string;
   @Field()
   readonly itemType: string;
   

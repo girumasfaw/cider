@@ -16,7 +16,7 @@ export class ItemInput {
   @Field(()=> String,{nullable: true})
   readonly description?: string;
   @Field(()=> String,{nullable: true})
-  readonly procurmentType?: string;
+  readonly procurementType?: string;
   @Field(()=> String,{nullable: true})
   readonly itemType?: string;
   @Field(()=> [RelationInput], {nullable: true})
